@@ -7,20 +7,22 @@
 
     <script>
       function my_day() {
-        var currday = 28;
+        var currday = 3;
         var day = document.getElementById("day-input").value;
+        document.getElementById("res-day").innerHTML =  currday -day;
         if (day > 31 || day < 0) {
           document.getElementById("day-inputd").style.display = "flex";
-          document.getElementById("res-day").innerHTML = currday - day;
+          
           document.getElementById("day-input").style.borderColor = "red";
           document.getElementsByTagName("label").style.Color = "red";
         } else {
           document.getElementById("day-inputd").style.display = "none";
           document.getElementById("year-input").style.borderColor = "gray";
         }
+       
       }
       function my_month() {
-        var currmonth = 12;
+        var currmonth = 1;
         var month = document.getElementById("month-input").value;
         document.getElementById("res-month").innerHTML = currmonth - month;
         if (month > 12 || month < 0) {
@@ -32,7 +34,7 @@
         }
       }
       function my_year() {
-        var curryear = 2023;
+        var curryear = 2024;
         var year = document.getElementById("year-input").value;
         document.getElementById("res-year").innerHTML = curryear - year;
         if (year > curryear) {
@@ -46,6 +48,9 @@
     </script>
 
     <style>
+ 
+
+
       body {
         overflow: hidden;
         width: 100vw;
@@ -57,7 +62,7 @@
         background-image: url(milad-fakurian-E8Ufcyxz514-unsplash.jpg);
       }
       #my-input {
-        width: 100%;
+        width: 40vw;
         height: 15vh;
         display: flex;
         justify-content: center;
@@ -95,31 +100,47 @@
       }
 
       .box {
-        width: 30vw;
-        height: 50vh;
+        overflow: hidden;
+        width: 40vw;
+        height: 60vh;
         border-width: 0px;
         border-radius: 10px 10px 50% 10px;
+        background-color: white;
       }
-      .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #854ffb;
-        width: 80vw;
-        height: 80vh;
-      }
+     
       p {
         font-size: xx-small;
         display: none;
         color: red;
       }
+
+      @media only screen and (max-width: 375px) {
+      
+      .box {
+          width: 100vw;
+           height: 60vh;
+      }
+      #my-input{
+        width: auto;
+      }
+      #my-input input {
+        display: inline-block;
+        margin: 0 0;
+  
+  
+      }
+      #my-input div {
+          display:flex;
+        }
+        span{
+          font-size: large;
+        }
+    }
     </style>
   </head>
   <body>
-    <div class="container">
       <div
         class="box"
-        style="background-color: white; width: 50vw; height: 70vh"
       >
         <div id="my-input">
           <div>
@@ -181,6 +202,5 @@
           </div>
         </div>
       </div>
-    </div>
   </body>
 </html>

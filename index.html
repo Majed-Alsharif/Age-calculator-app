@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function my_day() {
+        var currday = 28;
+        var day = document.getElementById("day-input").value;
+        if (day > 31 || day < 0) {
+          document.getElementById("day-inputd").style.display = "flex";
+          document.getElementById("res-day").innerHTML = currday - day;
+          document.getElementById("day-input").style.borderColor = "red";
+          document.getElementsByTagName("label").style.Color = "red";
+        } else {
+          document.getElementById("day-inputd").style.display = "none";
+          document.getElementById("year-input").style.borderColor = "gray";
+        }
+      }
+      function my_month() {
+        var currmonth = 12;
+        var month = document.getElementById("month-input").value;
+        document.getElementById("res-month").innerHTML = currmonth - month;
+        if (month > 12 || month < 0) {
+          document.getElementById("month-input").style.borderColor = "red";
+          document.getElementById("day-inputm").style.display = "flex";
+        } else {
+          document.getElementById("day-inputm").style.display = "none";
+          document.getElementById("year-input").style.borderColor = "gray";
+        }
+      }
+      function my_year() {
+        var curryear = 2023;
+        var year = document.getElementById("year-input").value;
+        document.getElementById("res-year").innerHTML = curryear - year;
+        if (year > curryear) {
+          document.getElementById("year-input").style.borderColor = "red";
+          document.getElementById("day-inputy").style.display = "flex";
+        } else {
+          document.getElementById("day-inputy").style.display = "none";
+          document.getElementById("year-input").style.borderColor = "gray";
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: oblique;
+        background-image: url(milad-fakurian-E8Ufcyxz514-unsplash.jpg);
+      }
+      #my-input {
+        width: 100%;
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid black;
+      }
+      #my-input div {
+        display: inline-block;
+      }
+
+      #my-input div label {
+        display: block;
+      }
+
+      #my-input input {
+        width: 50px;
+        height: 30px;
+        margin: 0 50px;
+        border-color: rgba(128, 128, 128, 0.38);
+      }
+
+      .result {
+        margin-top: 50px;
+      }
+      .result {
+        font-style: oblique;
+        font-size: 50px;
+        font-weight: 1000;
+      }
+      .result div {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        /* overflow: hidden; */
+      }
+
+      .box {
+        width: 30vw;
+        height: 50vh;
+        border-width: 0px;
+        border-radius: 10px 10px 50% 10px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #854ffb;
+        width: 80vw;
+        height: 80vh;
+      }
+      p {
+        font-size: xx-small;
+        display: none;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="box"
+        style="background-color: white; width: 50vw; height: 70vh"
+      >
+        <div id="my-input">
+          <div>
+            <label class="mylabel" for="day-input">day</label>
+            <br />
+            <input
+              oninput="my_day()"
+              id="day-input"
+              type="number "
+              onmousewheel="false"
+              placeholder="DD"
+            />
+            <br />
+            <p id="day-inputd">must be a valid date</p>
+          </div>
+
+          <div>
+            <label class="mylabel" for="month-input">month</label>
+            <br />
+            <input
+              oninput="my_month()"
+              id="month-input"
+              type="number "
+              onmousewheel="false"
+              placeholder="MM"
+            />
+            <br />
+            <p id="day-inputm">must be a valid month</p>
+          </div>
+          <div>
+            <label class="mylabel" for="year-input">year</label>
+            <br />
+            <input
+              oninput="my_year()"
+              id="year-input"
+              type="number "
+              onmousewheel="false"
+              placeholder="YY"
+            />
+            <br />
+            <p id="day-inputy">must be a in the past</p>
+          </div>
+        </div>
+
+        <div class="result">
+          <div id="year-res" style="margin-bottom: 50px">
+            <span style="color: #854ffb" id="res-year"> ---</span>
+            <span>Years</span>
+          </div>
+
+          <div id="month-res" style="margin-bottom: 50px">
+            <span style="color: #854ffb" id="res-month">---</span>
+            <span> Months</span>
+          </div>
+
+          <div id="day-res" style="margin-bottom: 50px">
+            <span style="color: #854ffb" id="res-day">---</span>
+            <span> days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
